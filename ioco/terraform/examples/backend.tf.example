@@ -1,0 +1,7 @@
+terraform {
+  required_version = ">= 0.12"
+  backend "http" {
+    address = "https://objectstorage..oraclecloud.com/p/.../n/.../b/.../o/terraform.tfstate"
+    update_method = "PUT"
+  }
+}

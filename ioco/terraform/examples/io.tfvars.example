@@ -1,0 +1,11 @@
+# IO POC
+
+tenancy_ocid     = "ocid1.tenancy.oc1....."
+compartment_id   = "ocid1.compartment.oc1....."
+region_iodc      = "ca-toronto-1"
+region_iooci-prd = "us-ashburn-1"
+region_iooci-dr  = "us-phoenix-1"
+
+iodc_cidr        = "192.168.0.0/16"
+iooci-prd_cidr   = "10.0.0.0/16"
+iooci-dr_cidr    = "10.1.0.0/16"
