@@ -27,12 +27,7 @@ def main(config):
         if all or this.config.get('--make-file-system'):
             make_file_system()
         if all or this.config.get('--mount'):
-<<<<<<< HEAD
-            mount_file_system
-
-=======
             mount_file_system()
->>>>>>> 9301974fb1ec0a5352f6edb5a3400d9eb4ee392f
         util.end_timing(timing_key)
 
 def make_file_system():
@@ -77,11 +72,7 @@ def mount_file_system():
     util.start_timing(timing_key)
 
     try:
-<<<<<<< HEAD
-        Path(config.get('--mount-path')).mkdir(parents=True, exist_ok=True)
-=======
         Path(config.get('--block-path')).mkdir(parents=True, exist_ok=True)
->>>>>>> 9301974fb1ec0a5352f6edb5a3400d9eb4ee392f
         
         mount_tmp_sh = config.get("--home") + "/ioco-oci-block-mount.sh"
         f = open(mount_tmp_sh,"w")
@@ -99,8 +90,4 @@ def mount_file_system():
         util.error_timings(timing_key)
         raise
 
-<<<<<<< HEAD
     util.end_timing(timing_key)
-=======
-    util.end_timing(timing_key)
->>>>>>> 9301974fb1ec0a5352f6edb5a3400d9eb4ee392f

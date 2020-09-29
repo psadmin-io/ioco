@@ -8,10 +8,7 @@ import datetime
 from pathlib import Path
 
 this = sys.modules[__name__]
-<<<<<<< HEAD
-=======
 this.config = None
->>>>>>> 9301974fb1ec0a5352f6edb5a3400d9eb4ee392f
 this.timings = None
 this.total_time_key = 'TOTAL TIME'
 this.timings_printed = False
@@ -69,12 +66,8 @@ def get_config(args):
         '--block-path': '/u01/app/oracle/product',
         '--mount-path': '/cm_psft_dpks',
         '--dpk-source': 'CM',
-<<<<<<< HEAD
-        '--dpk-platform': 'linux'
-=======
         '--dpk-platform': 'linux',
         '--quiet': False
->>>>>>> 9301974fb1ec0a5352f6edb5a3400d9eb4ee392f
     }
     config = __merge(config, default_config)
 
@@ -165,11 +158,7 @@ def error_timings(name):
 
 def print_timings():
 
-<<<<<<< HEAD
-    if not this.timings_printed:
-=======
     if not this.timings_printed and not this.config['--quiet']:
->>>>>>> 9301974fb1ec0a5352f6edb5a3400d9eb4ee392f
 
         # if total time has been calculated by a previous call, skip
         if not isinstance(this.timings[this.total_time_key], datetime.timedelta): 
