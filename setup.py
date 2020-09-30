@@ -7,7 +7,7 @@ HISTORY = (HERE / "HISTORY.md").read_text()
 
 setup_args = dict(
     name='iocloudops',
-    version='0.0.1',
+    version='0.0.2',
     description='psadmin.io Cloud Operations',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,
@@ -25,7 +25,7 @@ setup_args = dict(
     packages=find_packages(),
     keywords=['PeopleSoft', 'PeopleTools', 'OCI', 'Oracle Cloud Infrastructure', 'Oracle Cloud'],    
     include_package_data=True,
-    install_requires=["docopt>=0.6.2","requests"],
+    install_requires=["docopt>=0.6.2","requests","oci"],
     entry_points={
         "console_scripts": [
             "ioco=ioco.__main__:main",
