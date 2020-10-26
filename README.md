@@ -53,8 +53,8 @@ options:
 ## using pip
 We have NOT published this to `pip` yet, but you can still install locally from the repo.
 ```
-$ git clone https://github.com/psadmin-io/ioCloudOps.git
-$ sudo python3 -m pip install ./ioCloudOps
+$ git clone https://github.com/psadmin-io/ioco.git
+$ sudo python3 -m pip install ./ioco
 $ ioco --help
 $ sudo /usr/local/bin/ioco --help
 ```
@@ -63,8 +63,8 @@ $ sudo /usr/local/bin/ioco --help
 ```
 # Manually install dependencies 
 $ sudo python3 -m pip install docopt requests
-$ git clone https://github.com/psadmin-io/ioCloudOps.git
-$ cd ioCloudOps
+$ git clone https://github.com/psadmin-io/ioco.git
+$ cd ioco
 $ sudo python3 -m ioco --help
 ```
 
