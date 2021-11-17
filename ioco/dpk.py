@@ -167,14 +167,16 @@ def __install_packages():
     logging.info("Installing packages")
     timing_key = "dpk deploy install_packages"
     util.start_timing(timing_key)
-    try:
-        packages = ["oracle-database-preinstall-19c", "glibc-devel"]
-        subprocess.run(["sudo","yum", "-y", "install"] + packages, \
-            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-        logging.debug("Installing packages completed.")
-    except:
-        logging.error("Installing packages failed.")
-
+    if os.name == 'nt':
+        logging.warning("No packages to install for Windows at this time.")
+    else:
+        try:
+            packages = ["oracle-database-preinstall-19c", "glibc-devel"]
+            subprocess.run(["sudo","yum", "-y", "install"] + packages, \
+                check=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+            logging.debug("Installing packages completed.")
+        except:
+            logging.error("Installing packages failed.")
     util.end_timing(timing_key)
 
 def __get_dpk():
@@ -529,7 +531,21 @@ def __setup_dpk():
     logging.debug("Executing DPK Setup")
 
     if os.name == 'nt':
-        logging.warning("Windows is not supported at this time.")
+        logging.warning("Windows is a work in progress at this time....")
+        setup_script = this.config.get('dpk_files_dir') + "/setup/psft-dpk-setup.bat"
+        dpk_logfile = open(this.config.get('--logs') + "/psft-dpk-setup.log","w")
+        try:
+            subprocess.run(["powershell", setup_script, 
+                "--silent", 
+                "--dpk_src_dir " + this.config.get('dpk_files_dir'), 
+                "--response_file " + this.config.get('dpk_files_dir') + "/response.cfg", 
+                "--customization_file " + this.config.get('--cust-yaml'),
+#                    "--no_puppet_run"
+            ], check=True, stdout=dpk_logfile, stderr=dpk_logfile)
+        except:
+            logging.error("DPK setup script failed.")
+            util.error_timings(timing_key)
+            raise
     else:
         setup_script = this.config.get('dpk_files_dir') + "/setup/psft-dpk-setup.sh"
         dpk_logfile = open(this.config.get('--logs') + "/psft-dpk-setup.log","w")
