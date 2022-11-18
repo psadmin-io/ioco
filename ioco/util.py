@@ -70,6 +70,7 @@ def get_config(args):
         '--quiet': False
     }
     config = __merge(default_config, config)
+    logging.debug("Merged Config File: " + str(config))
 
     # Defaults - response.cfg
     default_config = {
@@ -103,7 +104,7 @@ def get_config(args):
         'ps_cfg_dir': config['psft_base_dir'] + '/hostname/ps_cfg_home',
         'db_service_name': config['db_name']
     }
-    config = __merge(config, default_config)
+    config = __merge(default_config, config)
     this.config = config
 
     return config
