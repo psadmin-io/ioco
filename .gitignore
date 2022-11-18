@@ -1,3 +1,6 @@
 *.pyc
 */__pycache__/
 .vscode/*
+build/*
+iocloudops.egg-info/*
+logs/*
