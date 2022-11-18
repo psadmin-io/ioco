@@ -4,3 +4,4 @@
 build/*
 iocloudops.egg-info/*
 logs/*
+config.json
