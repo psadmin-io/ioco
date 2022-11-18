@@ -69,7 +69,7 @@ def get_config(args):
         '--dpk-platform': 'linux',
         '--quiet': False
     }
-    config = __merge(config, default_config)
+    config = __merge(default_config, config)
 
     # Defaults - response.cfg
     default_config = {
@@ -92,7 +92,7 @@ def get_config(args):
         default_config['opr_id'] = 'VP1'
         default_config['opr_pwd'] = 'VP1'
 
-    config = __merge(config, default_config)
+    config = __merge(default_config, config)
 
     # More Defaults
     default_config = {
