@@ -49,6 +49,7 @@ def get_config(args):
     try:
         with open(config['--conf']) as json_file:
             config = __merge(config, json.load(json_file))
+            logging.debug("Loaded Config File: " + str(config))
     except FileNotFoundError:
         pass
     except:
@@ -70,7 +71,7 @@ def get_config(args):
         '--quiet': False
     }
     config = __merge(config, default_config)
-    logging.debug("Merged Config File: " + str(config))
+    logging.debug("Merged Setup Config File: " + str(config))
 
     # Defaults - response.cfg
     default_config = {
@@ -94,6 +95,7 @@ def get_config(args):
         default_config['opr_pwd'] = 'VP1'
 
     config = __merge(config, default_config)
+    logging.debug("Merged Environment Config File: " + str(config))
 
     # More Defaults
     default_config = {
@@ -105,6 +107,7 @@ def get_config(args):
         'db_service_name': config['db_name']
     }
     config = __merge(config, default_config)
+    logging.debug("Merged Final Config File: " + str(config))
     this.config = config
 
     return config
