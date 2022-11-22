@@ -49,9 +49,9 @@ def get_config(args):
     try:
         with open(config['--conf']) as json_file:
             config = __merge(config, json.load(json_file))
-            logging.debug("Loaded Config File: " + str(config))
+            logging.debug("----------------- \nLoaded config from file: " + '\n' + json.dumps(config, indent=4, sort_keys=True))
     except FileNotFoundError:
-        logging.debug("No config file loaded - using defaults")
+        logging.debug("----------------- \nNo config file loaded - using defaults")
         pass
     except:
         # logging - needs good message for invalid json errors
@@ -72,7 +72,7 @@ def get_config(args):
         '--quiet': False
     }
     config = __merge(config, default_config)
-    logging.debug("Merged Setup Config File: " + str(config))
+    logging.debug("----------------- \nMerged setup config file: "  + '\n' + json.dumps(config, indent=4, sort_keys=True))
 
     # Defaults - response.cfg
     default_config = {
@@ -96,7 +96,7 @@ def get_config(args):
         default_config['opr_pwd'] = 'VP1'
 
     config = __merge(config, default_config)
-    logging.debug("Merged Environment Config File: " + str(config))
+    logging.debug("----------------- \nMerged response config file: "  + '\n' + json.dumps(config, indent=4, sort_keys=True))
 
     # More Defaults
     default_config = {
@@ -108,7 +108,7 @@ def get_config(args):
         'db_service_name': config['db_name']
     }
     config = __merge(config, default_config)
-    logging.debug("Merged Final Config File: " + str(config))
+    logging.debug("----------------- \nFinalconfig file: "  + '\n' + json.dumps(config, indent=4, sort_keys=True))
     this.config = config
 
     return config
