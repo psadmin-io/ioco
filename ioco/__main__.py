@@ -19,6 +19,7 @@ usage:
                              [--nfs-host=<host>]
                              [--export=<export>]
                              [--mount-path=<path>]
+                             [--persist-cm-mount]
     ioco vault read --secret-id=<secret-id>
                     [options]
     ioco rundeck install [options]
