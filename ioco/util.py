@@ -69,7 +69,7 @@ def get_config(args):
         '--dpk-platform': 'linux',
         '--quiet': False
     }
-    config = __merge(default_config, config)
+    config = __merge(config, default_config)
     logging.debug("Merged Config File: " + str(config))
 
     # Defaults - response.cfg
@@ -93,7 +93,7 @@ def get_config(args):
         default_config['opr_id'] = 'VP1'
         default_config['opr_pwd'] = 'VP1'
 
-    config = __merge(default_config, config)
+    config = __merge(config, default_config)
 
     # More Defaults
     default_config = {
@@ -104,7 +104,7 @@ def get_config(args):
         'ps_cfg_dir': config['psft_base_dir'] + '/hostname/ps_cfg_home',
         'db_service_name': config['db_name']
     }
-    config = __merge(default_config, config)
+    config = __merge(config, default_config)
     this.config = config
 
     return config
