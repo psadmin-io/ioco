@@ -51,6 +51,7 @@ def get_config(args):
             config = __merge(config, json.load(json_file))
             logging.debug("Loaded Config File: " + str(config))
     except FileNotFoundError:
+        logging.debug("No config file loaded - using defaults")
         pass
     except:
         # logging - needs good message for invalid json errors
