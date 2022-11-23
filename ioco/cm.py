@@ -41,7 +41,7 @@ def attach(config):
     else:
         logging.debug("Mount path already contains files, skip mounting")
 
-    if config['persist-cm-mount']:
+    if config.get('--persist-cm-mount'):
         try:
             cm_mount_path = config.get("--mount-path")
             cm_export = config.get("--export")

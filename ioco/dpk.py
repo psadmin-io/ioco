@@ -48,7 +48,6 @@ def init(config):
         this.config['--dpk-source']
         this.config['--dpk-platform']
         this.config['--dpk-type']
-        this.config['--persist-cm-mount']
     except KeyError as e:
         logging.error("INVALID arguments - Missing " + str(e) + " in arguments.")
         sys.exit(1)
