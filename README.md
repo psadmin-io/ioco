@@ -17,10 +17,11 @@ usage:
                    [--mount]
                    [--block-path=<path>]
                    [--block-disk=<path>]
-    ioco cm attach-dpk-files --nfs-host=<host>
-                             --export=<export>
-                             [options]
+    ioco cm attach-dpk-files [options]
+                             [--nfs-host=<host>]
+                             [--export=<export>]
                              [--mount-path=<path>]
+                             [--persist-cm-mount]
     ioco rundeck install [options]
     ioco example [options] [--example-path=<path>]
 

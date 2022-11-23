@@ -21,6 +21,7 @@
     "--mount": null,
     "--mount-path": "/cm_psft_dpks",
     "--nfs-host": "cmfiles.mgmt.io.oraclevcn.com",
+    "--persist-cm-mount": false,
     "--quiet": null,
     "--secret-id": null,
     "--setup-dpk": null,
