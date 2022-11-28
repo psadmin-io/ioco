@@ -484,6 +484,7 @@ def __setup_dpk():
             "db_host = \"" + this.config.get('db_host') + "\"\n",
             "install_type = \"PUM\"\n",
             "admin_pwd = \"" + this.config.get('admin_pwd') + "\"\n",
+            "connect_id = \"" + this.config.get('connect_id') + "\"\n",
             "connect_pwd = \"" + this.config.get('connect_pwd') + "\"\n",
             "access_pwd  = \"" + this.config.get('access_pwd') + "\"\n",
             "opr_id = \"" + this.config.get('opr_id') + "\"\n",

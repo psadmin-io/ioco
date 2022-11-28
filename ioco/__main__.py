@@ -19,6 +19,7 @@ usage:
                              [--nfs-host=<host>]
                              [--export=<export>]
                              [--mount-path=<path>]
+                             [--persist-cm-mount]
     ioco vault read --secret-id=<secret-id>
                     [options]
     ioco rundeck install [options]
@@ -48,6 +49,7 @@ options:
                            default: '/u01/app/oracle/product'
     --mount-path=<path>    CM dpk files mount path
                            default: '/cm_psft_dpks'
+    --persist-cm-mount     Add CM mount path to /etc/fstab
 """
 import os
 import logging

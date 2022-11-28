@@ -41,4 +41,28 @@ def attach(config):
     else:
         logging.debug("Mount path already contains files, skip mounting")
 
+    if config.get('--persist-cm-mount'):
+        try:
+            cm_mount_path = config.get("--mount-path")
+            cm_export = config.get("--export")
+            cm_mount_path = config.get("--mount-path")
+
+            with open('/etc/fstab') as f:
+                if cm_mount_path in f.read():
+                    write_entry = False
+                    logging.info('Mount already in /etc/fstab')
+                else:
+                    write_entry = True
+            f.close
+
+            if write_entry:
+                with open('/etc/fstab', 'a') as f:
+                    entry = cm_nfs_host + ":" + cm_export + " " + cm_mount_path + " nfs defaults,comment=ioco 0 0"
+                    f.write(entry)
+                f.close
+        except:
+            logging.error('Error updating fstab file')
+            util.error_timings(timing_key)
+            raise
+
     util.end_timing(timing_key)
