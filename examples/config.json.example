@@ -51,6 +51,7 @@
     "opr_pwd": "PS",
     "patch_id": null,
     "pia_port": "8000",
+    "db_port": "1521",
     "ps_cfg_dir": "/u01/app/oracle/product/hostname/ps_cfg_home",
     "psft_base_dir": "/u01/app/oracle/product",
     "read": null,

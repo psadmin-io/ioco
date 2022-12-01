@@ -7,6 +7,7 @@ usage:
                     [--get-dpk]
                     [--setup-dpk]
                     [--firewall-pia]
+                    [--firewall-db]
                     [--dpk-source=<type> --dpk-platform=<type> --dpk-type=<type>]
                     [--dpk-version=<nbr> --dpk-patch=<nbr>]
     ioco dpk undeploy [options]

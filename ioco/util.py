@@ -76,6 +76,7 @@ def get_config(args):
         'db_name': 'PSFTDB',
         'db_host': 'localhost',
         'pia_port': '8000',
+        'db_port': '1521',
         'opr_id': 'PS',
         'opr_pwd': 'PS',
         'gw_user_pwd': 'password',
