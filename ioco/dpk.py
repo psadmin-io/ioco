@@ -92,14 +92,14 @@ def deploy():
         __setup_file_system()
     if this.config.get('--all-dpk') or this.config.get('--install-packages'):
         __install_packages()
-    if this.config.get('--all-dpk') or this.config.get('--get-dpk'):
-        __get_dpk()
-    if this.config.get('--all-dpk') or this.config.get('--setup-dpk'):
-        __setup_dpk()
     if this.config.get('--all-dpk') or this.config.get('--firewall-pia'):
         __firewall_pia()
     if this.config.get('--all-dpk') or this.config.get('--firewall-db'):
         __firewall_db()
+    if this.config.get('--all-dpk') or this.config.get('--get-dpk'):
+        __get_dpk()
+    if this.config.get('--all-dpk') or this.config.get('--setup-dpk'):
+        __setup_dpk()
 
     __done()
 
