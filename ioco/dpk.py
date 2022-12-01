@@ -73,7 +73,8 @@ def init(config):
         and not this.config['--install-packages'] \
         and not this.config['--get-dpk'] \
         and not this.config['--setup-dpk'] \
-        and not this.config['--firewall-pia']
+        and not this.config['--firewall-pia'] \
+        and not this.config['--firewall-db']
 
     # Setting credential variables
     this.config['mos_username']  = os.getenv("MOS_USERNAME")
@@ -97,6 +98,8 @@ def deploy():
         __setup_dpk()
     if this.config.get('--all-dpk') or this.config.get('--firewall-pia'):
         __firewall_pia()
+    if this.config.get('--all-dpk') or this.config.get('--firewall-db'):
+        __firewall_db()
 
     __done()
 
@@ -422,7 +425,7 @@ def __get_dpk_status():
                 json.dump(dpk_status, f)
         except FileNotFoundError:
             logging.error("DPK files directory not created. Try again with '--setup-file-system'")
-            util.error_timings(timing_key)
+            # util.error_timings(timing_key)
             exit(2)
         except:
             logging.error("Issue creating DPK status file")
@@ -554,6 +557,13 @@ def __firewall_pia():
         subprocess.run(["sudo","firewall-cmd", "--zone=public", "--add-port=" + str(this.config.get('pia_port')) + "/tcp"], check=True)
     except:
         logging.error("Firewall PIA port failed.")
+        raise
+def __firewall_db():
+    logging.info("Updating firewall for TNS")
+    try:
+        subprocess.run(["sudo","firewall-cmd", "--zone=public", "--add-port=" + str(this.config.get('db_port')) + "/tcp"], check=True)
+    except:
+        logging.error("Firewall TNS port failed.")
         raise
 
 def __done():
