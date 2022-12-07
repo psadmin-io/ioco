@@ -80,6 +80,7 @@ def init(config):
     this.config['mos_username']  = os.getenv("MOS_USERNAME")
     this.config['mos_password']  = os.getenv("MOS_PASSWORD")
     
+    
     # Setting other config
     this.config['dpk_status_file'] = this.config.get('dpk_files_dir') + '/dpk_status.json'
 
@@ -194,6 +195,9 @@ def __get_dpk():
         if this.config.get('--dpk-source') == "CM":
             __get_dpk_cm()
         else:
+            # Use patch_id from command line
+            if this.config.get('--dpk-patch'):
+                this.config['patch_id'] = this.config.get('--dpk-patch')
             __get_dpk_mos()
 
     # unpack
