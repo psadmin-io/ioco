@@ -558,14 +558,14 @@ def __setup_dpk():
 def __firewall_pia():
     logging.info("Updating firewall for PIA")
     try:
-        subprocess.run(["sudo","firewall-cmd", "--zone=public", "--add-port=" + str(this.config.get('pia_port')) + "/tcp"], check=True)
+        subprocess.run(["sudo","firewall-cmd", "--permanent", "--zone=public", "--add-port=" + str(this.config.get('pia_port')) + "/tcp"], check=True)
     except:
         logging.error("Firewall PIA port failed.")
         raise
 def __firewall_db():
     logging.info("Updating firewall for TNS")
     try:
-        subprocess.run(["sudo","firewall-cmd", "--zone=public", "--add-port=" + str(this.config.get('db_port')) + "/tcp"], check=True)
+        subprocess.run(["sudo","firewall-cmd", "--permanent", "--zone=public", "--add-port=" + str(this.config.get('db_port')) + "/tcp"], check=True)
     except:
         logging.error("Firewall TNS port failed.")
         raise
