@@ -41,7 +41,7 @@ def make_file_system():
     else:
         logging.debug("Creating partition on " + this.config.get("--block-disk"))        
         try:
-            fdisk_tmp_sh = config.get("--home") + "/ioco-oci-block-partition.sh"
+            fdisk_tmp_sh = this.config.get("--home") + "/ioco-oci-block-partition.sh"
             f = open(fdisk_tmp_sh,"w")
             f.write("sudo fdisk " + this.config.get("--block-disk") + " <<EOF\nn\np\n\n\n\nw\nEOF")
             f.close()
@@ -72,14 +72,14 @@ def mount_file_system():
     util.start_timing(timing_key)
 
     try:
-        Path(config.get('--block-path')).mkdir(parents=True, exist_ok=True)
+        Path(this.config.get('--block-path')).mkdir(parents=True, exist_ok=True)
         
-        mount_tmp_sh = config.get("--home") + "/ioco-oci-block-mount.sh"
+        mount_tmp_sh = this.config.get("--home") + "/ioco-oci-block-mount.sh"
         f = open(mount_tmp_sh,"w")
         f.write("#!/bin/bash\n")
-        f.write("if ! grep -q '" + part + "' /etc/fstab ; then\n")
+        f.write("if ! grep -q '" + this.part + "' /etc/fstab ; then\n")
         f.write("    echo '# ioco-oci-block-mount' >> /etc/fstab\n")
-        f.write("    echo '" + part + " " + config.get("--block-path") + " " + fs_type + " defaults 0 2' >> /etc/fstab\n")
+        f.write("    echo '" + this.part + " " + this.config.get("--block-path") + " " + this.fs_type + " defaults 0 2' >> /etc/fstab\n")
         f.write("fi")
         f.close()
         
